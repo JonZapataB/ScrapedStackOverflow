@@ -1,0 +1,25 @@
+{
+  "name": "scrapedstackoverflow",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "doc": "node node_modules/jsdoc/jsdoc.js -c jsdoc.json -r -p"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsdom": "^21.1.1",
+    "node": "^19.8.1",
+    "puppeteer": "^19.9.1"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jsdoc": "^4.0.2",
+    "nodemon": "^2.0.22"
+  }  
+}
