@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1681918199761" clover="3.2.0">
+  <project timestamp="1681918199762" name="All files">
+    <metrics statements="46" coveredstatements="38" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="20" elements="66" coveredelements="58" complexity="0" loc="46" ncloc="46" packages="2" files="4" classes="4"/>
+    <package name="controllers">
+      <metrics statements="22" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="googleSearchController.js" path="/home/jon/VC_Jon1/VC_Jon/ScrapedStackOverflow/controllers/googleSearchController.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+      </file>
+      <file name="stackOverflowController.js" path="/home/jon/VC_Jon1/VC_Jon/ScrapedStackOverflow/controllers/stackOverflowController.js">
+        <metrics statements="13" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="69" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="17"/>
+      <file name="parser.js" path="/home/jon/VC_Jon1/VC_Jon/ScrapedStackOverflow/utils/parser.js">
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="134" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="31" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="31" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="79" count="165" type="stmt"/>
+      </file>
+      <file name="scraper.js" path="/home/jon/VC_Jon1/VC_Jon/ScrapedStackOverflow/utils/scraper.js">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
