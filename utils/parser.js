@@ -44,29 +44,19 @@ class Parser {
      * @method
      * @returns {string[]} - parrafos de la pagina
      */
-    getQuestion() {
-        const paragraphs = Array.from(this.document.querySelectorAll('div.postcell p'));
+    getParagraphs(element) {
+        const paragraphs = Array.from(element.querySelectorAll('p'));
         return paragraphs.map(p => p.textContent.trim());
     }
 
-    /**
-     * Devuelve los parrafos de la pregunta
-     * @method
-     * @returns {string[]} - parrafos de la pagina
-     */
-    getResults() {
-        const paragraphs = Array.from(this.document.querySelectorAll('div.answercell p'));
-        return paragraphs.map(p => p.textContent.trim());
+    getPuntuacion(element) {
+        const puntuacion = element.querySelector('.js-vote-count');
+        return puntuacion.textContent.trim();
     }
 
-    getPuntuacion() {
-        const puntuacion = Array.from(this.document.querySelectorAll('.js-voting-container .js-vote-count'));
-        return puntuacion.map(p => p.textContent.trim());
-    }
-
-    getDate() {
-        const date = Array.from(this.document.querySelectorAll('.relativetime'));
-        return date.map(p => p.textContent.trim());
+    getDate(element) {
+        const date = element.querySelector('.relativetime');
+        return date.textContent.trim();
     }
     
     /**
@@ -78,6 +68,45 @@ class Parser {
         const links = Array.from(this.document.querySelectorAll('a'));
         return links.map(link => link.href);
     }
+    getPostAsDOM() {
+        return this.document.querySelector('.question');
+    }
+
+    getPost() {
+        const post = this.getPostAsDOM();
+        const question = this.getParagraphs(post);
+        const puntuacion = this.getPuntuacion(post);
+        const fecha = this.getDate(post);
+        
+        return{
+            question,
+            puntuacion,
+            fecha
+        }
+    }
+
+    getAnswerAsDOM() {
+        return this.document.querySelector('.answer ');
+    }
+
+    getAnswer() {
+        const answer = this.getAnswerAsDOM();
+        const results = this.getParagraphs(answer);
+        const puntuacion = this.getPuntuacion(answer);
+        const fecha = this.getDate(answer);
+        
+        return{
+            results,
+            puntuacion,
+            fecha,
+            answer
+        }
+    }
+
+
+    
+
+
 }
 
 export default Parser;

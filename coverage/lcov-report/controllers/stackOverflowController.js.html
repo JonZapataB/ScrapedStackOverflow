@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/14</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.46% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/13</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -89,36 +89,24 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">69x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,26 +121,20 @@ import googleSearchController from "./googleSearchController.js";
 &nbsp;
 async function getContent(query){
     const googleLinks = await googleSearchController.searchLinks(`stackoverflow+ ${query}`);
-    const url = googleLinks.find((link)=&gt; link.includes("stackoverflow.com/questions/"))
+    const url = googleLinks.find((link)=&gt; link.includes("stackoverflow.com/questions"))
     
     const scraper = new Scraper();
     await scraper.init();
     const html = await scraper.getPageContent(url);
-    const parser = <span class="cstat-no" title="statement not covered" >new Parser(html);</span>
+    const parser = new Parser(html);
 &nbsp;
-    const title = <span class="cstat-no" title="statement not covered" >parser.getTitle();</span>
-    const question = <span class="cstat-no" title="statement not covered" >parser.getQuestion();</span>
-    const result = <span class="cstat-no" title="statement not covered" >parser.getResults();</span>
-    const puntuacion = <span class="cstat-no" title="statement not covered" >parser.getPuntuacion();</span>
-    const fecha = <span class="cstat-no" title="statement not covered" >parser.getDate();</span>
+    const post = parser.getPost();
+    const answer = parser.getAnswer();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    scraper.close();</span>
-<span class="cstat-no" title="statement not covered" >    return{</span>
-        title,
-        question,
-        result,
-        puntuacion,
-        fecha,
+    scraper.close();
+    return{
+        post,
+        answer
     }
     
 }
@@ -166,7 +148,7 @@ export default{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-19T15:29:59.718Z
+                at 2023-04-20T14:24:17.331Z
             </div>
         <script src="../prettify.js"></script>
         <script>
