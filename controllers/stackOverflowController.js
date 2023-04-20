@@ -11,12 +11,14 @@ async function getContent(query){
     const html = await scraper.getPageContent(url);
     const parser = new Parser(html);
 
+    const title = parser.getTitle();
     const post = parser.getPost();
     const answer = parser.getAnswer();
 
     scraper.close();
     return{
         post,
+        title,
         answer
     }
     

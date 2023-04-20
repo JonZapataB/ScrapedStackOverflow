@@ -58,6 +58,16 @@ class Parser {
         const date = element.querySelector('.relativetime');
         return date.textContent.trim();
     }
+
+    getTotalPost(element){
+        const totalPost = element.querySelector('.postcell');
+        return totalPost.innerHTML.trim();
+    }
+
+    getTotalAnswers(element){
+        const totalAnswers = element.querySelector('.answercell');
+        return totalAnswers.innerHTML.trim();
+    }
     
     /**
      * Devuelve los links de la pagina
@@ -77,30 +87,35 @@ class Parser {
         const question = this.getParagraphs(post);
         const puntuacion = this.getPuntuacion(post);
         const fecha = this.getDate(post);
+        const totalPost = this.getTotalPost(post);
         
         return{
             question,
             puntuacion,
-            fecha
+            fecha,
+            post:totalPost
         }
     }
 
     getAnswerAsDOM() {
-        return this.document.querySelector('.answer ');
+        return Array.from(this.document.querySelectorAll('.answer '));
     }
 
     getAnswer() {
         const answer = this.getAnswerAsDOM();
-        const results = this.getParagraphs(answer);
-        const puntuacion = this.getPuntuacion(answer);
-        const fecha = this.getDate(answer);
+        return answer.map((answer) => {
+            const results = this.getParagraphs(answer);
+            const puntuacion = this.getPuntuacion(answer);
+            const fecha = this.getDate(answer);
+            const totalAnswers = this.getTotalAnswers(answer);
         
-        return{
-            results,
-            puntuacion,
-            fecha,
-            answer
-        }
+            return{
+                results,
+                puntuacion,
+                fecha,
+                answer:totalAnswers,
+            }
+        });
     }
 
 
