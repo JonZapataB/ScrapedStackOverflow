@@ -47,14 +47,14 @@ describe('Parser', () => {
 
     it('Deberia devolver una respuesta en formato DOM', () => {
         const post = parser.getAnswerAsDOM();
-        const votes = parser.getPuntuacion(post);
+        const votes = parser.getPuntuacion(post[0]);
         expect(votes).toContain('5380');
     });
         
-    it('Deberia devolver el answer', () => {
-        const answer = parser.getAnswer();
-        expect(answer.puntuacion).toContain('5380');
-        expect(answer.fecha).toContain('Mar 5 at 14:48');
-        expect(answer.results).toContain('Failing the above, there is this method (based on the original answer to this question):');
+    it('Deberia devolver las answers', () => {
+        const answer = parser.getAnswers();
+        expect(answer[0].puntuacion).toContain('5380');
+        expect(answer[0].fecha).toContain('Mar 5 at 14:48');
+        expect(answer[0].results).toContain('Failing the above, there is this method (based on the original answer to this question):');
     });
 });

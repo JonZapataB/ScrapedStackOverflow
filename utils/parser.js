@@ -98,7 +98,7 @@ class Parser {
     }
 
     /**
-     * 
+     * @method
      * @returns {object} - objeto con los datos de la pagina
      */
     getPostAsDOM() {
@@ -121,10 +121,10 @@ class Parser {
     }
 
     getAnswerAsDOM() {
-        return Array.from(this.document.querySelectorAll('.answer '));
+        return Array.from(this.document.querySelectorAll('.answer'));
     }
 
-    getAnswer() {
+    getAnswers() {
         const answer = this.getAnswerAsDOM();
         return answer.map((answer) => {
             const results = this.getParagraphs(answer);
