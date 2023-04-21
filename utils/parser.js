@@ -40,7 +40,7 @@ class Parser {
         return this.document.querySelector('h1').textContent.trim();
     }
     /**
-     * Devuelve los parrafos de la pregunta
+     * Devuelve los parrafos de la pagina
      * @method
      * @returns {string[]} - parrafos de la pagina
      */
@@ -49,21 +49,39 @@ class Parser {
         return paragraphs.map(p => p.textContent.trim());
     }
 
+    /**
+     * Devuelve la puntuacion de la pagina
+     * @method
+     * @returns {string[]} - puntuacion de la pagina 
+     */
     getPuntuacion(element) {
         const puntuacion = element.querySelector('.js-vote-count');
         return puntuacion.textContent.trim();
     }
 
+    /**
+     * Devuelve la fecha de la pagina
+     * @method
+     * @returns {string[]} - fecha de la pagina
+     */
     getDate(element) {
         const date = element.querySelector('.relativetime');
         return date.textContent.trim();
     }
-
+    /**
+     * Devuelve el post completo de la pregunta
+     * @method
+     * @returns {string[]} - post de la pagina
+     */
     getTotalPost(element){
         const totalPost = element.querySelector('.postcell');
         return totalPost.innerHTML.trim();
     }
-
+    /**
+     * Devuelve el answer completo de la pagina
+     * @method
+     * @returns {string[]} - answer de la pagina
+     */
     getTotalAnswers(element){
         const totalAnswers = element.querySelector('.answercell');
         return totalAnswers.innerHTML.trim();
@@ -78,6 +96,11 @@ class Parser {
         const links = Array.from(this.document.querySelectorAll('a'));
         return links.map(link => link.href);
     }
+
+    /**
+     * 
+     * @returns {object} - objeto con los datos de la pagina
+     */
     getPostAsDOM() {
         return this.document.querySelector('.question');
     }
