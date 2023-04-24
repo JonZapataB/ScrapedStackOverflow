@@ -1,0 +1,32 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:5
+    container_name: mongo-scrapedStackOverflow
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: scrapedStackOverflow
+    ports:
+      - 27019:27017
+    volumes:
+      - ~/scrapedStackOverflowData/mongo:/data/db
+    networks:
+      - scrapedStackOverflow
+
+  node:
+    build: .
+    container_name: node-scrapedStackOverflow
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+        - mongo
+    networks:
+        - scrapedStackOverflow
+    volumes:
+        - ./:/usr/src/app
+        - exclude:/usr/src/app/node_modules/
+volumes:
+  exclude:
+networks:
+  scrapedStackOverflow:
