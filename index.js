@@ -4,6 +4,10 @@ import path from 'path';
 
 const app = express();
 
+/**
+ * consigue informacion de index.html
+ * @route GET /
+ */
 app.get ('/', (req, res) => {
     const __dirname = path.resolve();5
     res.sendFile(__dirname + '/index.html');
@@ -28,7 +32,7 @@ app.get('/search', async (req, res) => {
     res.send(`
         <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=83d4b324173a">
         <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary.css?v=5e2d45054eda">
-        <h1>${title}</h1>
+        <h1>Buscador stackoverflow</h1>
         <h2>${post.fecha}</h2>
         <h2>${post.puntuacion}</h2>
         <div>${post.post}</div>
