@@ -33,26 +33,25 @@ app.get('/search', async (req, res) => {
         <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=83d4b324173a">
         <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary.css?v=5e2d45054eda">
         <h1>Buscador stackoverflow</h1>
+        <h1>${title}</h1>
         <h2>${post.fecha}</h2>
         <h2>${post.puntuacion}</h2>
         <div>${post.post}</div>
         <br>
-        ${answerHTML}
-        
+        ${answerHTML}   
+    `); 
 
-        
-    `);
-    /* res.json(`
-        <h1>Buscador stackoverflow</h1>
-        <h2>${post.fecha}</h2>
-        <h2>${post.puntuacion}</h2>
-        <div>${post.post}</div>
-        <br>
-        ${answerHTML}
-        
+    //Mostrar modo JSON
+    /*  app.get ('/search', (req, res) => {
+    const query = req.query.query;
+    const {title, post, answers} = stackOverflowController.getContent(query);
+    res.json({title, post, answers} );
+}); */
 
-        
-    `); */
+app.listen(3000, () => {
+    console.log('Server started on port 3000');
+});  
+
     } catch (error) {
         //throw  new error(error);
     res.send('error index.js');
