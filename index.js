@@ -42,6 +42,17 @@ app.get('/search', async (req, res) => {
 
         
     `);
+    /* res.json(`
+        <h1>Buscador stackoverflow</h1>
+        <h2>${post.fecha}</h2>
+        <h2>${post.puntuacion}</h2>
+        <div>${post.post}</div>
+        <br>
+        ${answerHTML}
+        
+
+        
+    `); */
     } catch (error) {
         //throw  new error(error);
     res.send('error index.js');
@@ -50,14 +61,5 @@ app.get('/search', async (req, res) => {
 
 app.listen(3000, () => {
     console.log('Server started on port 3000');
-}); 
+});  
 
-//Mostrar modo JSON
-/* app.get ('/', (req, res) => {
-    const query = req.query.query;
-    const content = await stackOverflowController.getContent(query);
-    res.send(content);
-});
-
-app.listen(3000, () => {
-    ºconsole.log('Server started on port 3000'); */
